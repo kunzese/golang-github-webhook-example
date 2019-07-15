@@ -62,7 +62,7 @@ func main() {
 				State:       github.String("pending"),
 				TargetURL:   github.String("https://github.com/kunzese"),
 				Description: github.String("My description"),
-				Context:     github.String("Context/Test123"),
+				Context:     github.String("Example/Golang"),
 			}
 
 			_, _, err := githubClient.Repositories.CreateStatus(ctx, event.GetRepo().Owner.GetName(), event.GetRepo().GetName(), event.GetAfter(), input)
