@@ -23,6 +23,11 @@ func main() {
 		log.Fatal("SECRET not set")
 	}
 
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
 	ctx := context.Background()
 
 	ts := oauth2.StaticTokenSource(
@@ -70,11 +75,6 @@ func main() {
 
 		fmt.Fprintf(w, "%+v\n", event)
 	})
-
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "8080"
-	}
 
 	log.Printf("Listening on :%s", port)
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), nil))
