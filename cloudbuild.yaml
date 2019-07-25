@@ -4,4 +4,4 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/$PROJECT_ID/golang-github-webhook-example']
 - name: 'gcr.io/cloud-builders/gcloud'
-  args: ['beta', 'run', 'deploy', 'golang-github-webhook-example', '--allow-unauthenticated', '--platform', 'managed', '--region', 'us-central1', '--image', 'gcr.io/$PROJECT_ID/golang-github-webhook-example', '--set-env-vars', 'SECRET=${_SECRET},ACCESS_TOKEN=${_ACCESS_TOKEN}', '--timeout', '10' ]
+  args: ['beta', 'run', 'deploy', 'golang-github-webhook-example', '--allow-unauthenticated', '--platform', 'managed', '--region', 'europe-west1', '--image', 'gcr.io/$PROJECT_ID/golang-github-webhook-example', '--set-env-vars', 'SECRET=${_SECRET},ACCESS_TOKEN=${_ACCESS_TOKEN}', '--timeout', '10' ]
