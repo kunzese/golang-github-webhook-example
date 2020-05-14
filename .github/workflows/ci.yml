@@ -8,6 +8,13 @@ jobs:
 
       - name: Lint Markdown files
         uses: actionshub/markdownlint@v1.1.1
+
+      - name: Lint YAML files
+        uses: karancode/yamllint-github-action@v2.0.0
+        with:
+          yamllint_comment: true
+        env:
+          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   test:
     runs-on: ubuntu-latest
     steps:
