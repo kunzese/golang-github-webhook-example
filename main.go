@@ -12,11 +12,11 @@ import (
 )
 
 func main() {
-	var accessToken, secret string
+	var githubToken, secret string
 	var ok bool
 
-	if accessToken, ok = os.LookupEnv("ACCESS_TOKEN"); !ok {
-		log.Fatal("ACCESS_TOKEN not set")
+	if githubToken, ok = os.LookupEnv("GITHUB_TOKEN"); !ok {
+		log.Fatal("GITHUB_TOKEN not set")
 	}
 
 	if secret, ok = os.LookupEnv("SECRET"); !ok {
@@ -31,7 +31,7 @@ func main() {
 	ctx := context.Background()
 
 	ts := oauth2.StaticTokenSource(
-		&oauth2.Token{AccessToken: accessToken},
+		&oauth2.Token{AccessToken: githubToken},
 	)
 	tc := oauth2.NewClient(ctx, ts)
 	githubClient := github.NewClient(tc)
