@@ -1,6 +1,13 @@
 name: CI
 on: [push, pull_request]
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Lint Markdown files
+        uses: actionshub/markdownlint@v1.1.1
   test:
     runs-on: ubuntu-latest
     steps:
