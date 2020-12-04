@@ -1,4 +1,4 @@
-FROM golang:1.15.5-alpine as builder
+FROM golang:1.15.6-alpine as builder
 RUN apk add --no-cache git
 WORKDIR /go/src/github.com/kunzese/golang-github-webhook-example
 COPY . .
