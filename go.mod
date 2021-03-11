@@ -1,4 +1,4 @@
-module "https://github.com/kunzese/golang-github-webhook-example"
+module github.com/kunzese/golang-github-webhook-example
 
 require (
 	github.com/google/go-github/v28 v28.1.1
