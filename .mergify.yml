@@ -1,5 +1,5 @@
 queue_rules:
-  - name: lowprio
+  - name: default
     conditions:
       - schedule=Mon-Fri 09:30-16:00[Europe/Paris]
 
@@ -10,21 +10,7 @@ pull_request_rules:
       - "#commits=1"
     actions:
       queue:
-        name: lowprio
+        name: default
         method: rebase
-
-  - name: dependabot conflict fixer
-    conditions:
-      - author=dependabot[bot]
-      - conflict
-    actions:
-      comment:
-        message: "@dependabot recreate"
-
-  - name: remove conflict label if not needed
-    conditions:
-      - -conflict
-    actions:
-      label:
-        remove:
-          - conflict
+        rebase_fallback: none
+        update_method: rebase
