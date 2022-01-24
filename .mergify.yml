@@ -12,3 +12,19 @@ pull_request_rules:
       queue:
         name: lowprio
         method: rebase
+
+  - name: dependabot conflict fixer
+    conditions:
+      - author=dependabot[bot]
+      - conflict
+    actions:
+      comment:
+        message: "@dependabot recreate"
+
+  - name: remove conflict label if not needed
+    conditions:
+      - -conflict
+    actions:
+      label:
+        remove:
+          - conflict
